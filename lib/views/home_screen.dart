@@ -5,10 +5,26 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   final List<Map<String, String>> popularSongs = const [
-    {'title': 'Love Shot', 'album': 'Love Shot'},
-    {'title': 'Growl', 'album': 'XOXO'},
-    {'title': 'Call Me Baby', 'album': 'EXODUS'},
-    {'title': 'Tempo', 'album': 'Don’t Mess Up My Tempo'},
+    {
+      'title': 'Love Shot',
+      'album': 'Love Shot',
+      'image': 'assets/love_shot.jpg',
+    },
+    {
+      'title': 'Growl',
+      'album': 'XOXO',
+      'image': 'assets/growl.jpg',
+    },
+    {
+      'title': 'Call Me Baby',
+      'album': 'EXODUS',
+      'image': 'assets/call_me_baby.jpg',
+    },
+    {
+      'title': 'Tempo',
+      'album': 'Don’t Mess Up My Tempo',
+      'image': 'assets/tempo.jpg',
+    },
   ];
 
   @override
@@ -38,7 +54,10 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final song = popularSongs[index];
                     return SongCard(
-                        title: song['title']!, album: song['album']!);
+                      title: song['title']!,
+                      album: song['album']!,
+                      image: song['image']!,
+                    );
                   },
                 ),
               ),
@@ -61,7 +80,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Album',
+                'EXO',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
@@ -74,11 +93,57 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final song = popularSongs[index];
                     return SongCard(
-                        title: song['title']!, album: song['album']!);
+                      title: song['title']!,
+                      album: song['album']!,
+                      image: song['image']!,
+                    );
                   },
                 ),
               ),
               const SizedBox(height: 24),
+              const Text(
+                'Sub Unit',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 150,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: popularSongs.length,
+                  separatorBuilder: (_, __) => const SizedBox(width: 12),
+                  itemBuilder: (context, index) {
+                    final song = popularSongs[index];
+                    return SongCard(
+                      title: song['title']!,
+                      album: song['album']!,
+                      image: song['image']!,
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Solo',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 150,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: popularSongs.length,
+                  separatorBuilder: (_, __) => const SizedBox(width: 12),
+                  itemBuilder: (context, index) {
+                    final song = popularSongs[index];
+                    return SongCard(
+                      title: song['title']!,
+                      album: song['album']!,
+                      image: song['image']!,
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
