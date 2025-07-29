@@ -58,6 +58,12 @@ flutter:
     - assets/growl.jpg
     - assets/call_me_baby.jpg
     - assets/tempo.jpg
+    - assets/cbx.jpg
+    - assets/sc.jpg
+    - assets/baekhyun_candy.jpg
+    - assets/do_rose.jpg
+    - assets/chen_snow.jpg
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

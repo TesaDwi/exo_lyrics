@@ -4,7 +4,7 @@ import '../widgets/song_card.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  final List<Map<String, String>> popularSongs = const [
+  final List<Map<String, String>> exoSongs = const [
     {
       'title': 'Love Shot',
       'album': 'Love Shot',
@@ -24,6 +24,37 @@ class HomeScreen extends StatelessWidget {
       'title': 'Tempo',
       'album': 'Don’t Mess Up My Tempo',
       'image': 'assets/tempo.jpg',
+    },
+  ];
+
+  final List<Map<String, String>> subUnitSongs = const [
+    {
+      'title': 'What U do?',
+      'album': 'EXO-CBX - Blooming Days',
+      'image': 'assets/cbx.jpg',
+    },
+    {
+      'title': 'The One',
+      'album': 'EXO-SC - 1 Billion Views',
+      'image': 'assets/sc.jpg',
+    },
+  ];
+
+  final List<Map<String, String>> soloSongs = const [
+    {
+      'title': 'Candy',
+      'album': 'Baekhyun - Delight',
+      'image': 'assets/baekhyun_candy.jpg',
+    },
+    {
+      'title': 'Rose',
+      'album': 'D.O. - Empathy',
+      'image': 'assets/do_rose.jpg',
+    },
+    {
+      'title': 'On the Snow',
+      'album': 'Chen - Dear My Dear',
+      'image': 'assets/chen_snow.jpg',
     },
   ];
 
@@ -49,10 +80,10 @@ class HomeScreen extends StatelessWidget {
                 height: 150,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: popularSongs.length,
+                  itemCount: exoSongs.length,
                   separatorBuilder: (_, __) => const SizedBox(width: 12),
                   itemBuilder: (context, index) {
-                    final song = popularSongs[index];
+                    final song = exoSongs[index];
                     return SongCard(
                       title: song['title']!,
                       album: song['album']!,
@@ -88,10 +119,10 @@ class HomeScreen extends StatelessWidget {
                 height: 150,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: popularSongs.length,
+                  itemCount: exoSongs.length,
                   separatorBuilder: (_, __) => const SizedBox(width: 12),
                   itemBuilder: (context, index) {
-                    final song = popularSongs[index];
+                    final song = exoSongs[index];
                     return SongCard(
                       title: song['title']!,
                       album: song['album']!,
@@ -110,10 +141,10 @@ class HomeScreen extends StatelessWidget {
                 height: 150,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: popularSongs.length,
+                  itemCount: subUnitSongs.length,
                   separatorBuilder: (_, __) => const SizedBox(width: 12),
                   itemBuilder: (context, index) {
-                    final song = popularSongs[index];
+                    final song = subUnitSongs[index];
                     return SongCard(
                       title: song['title']!,
                       album: song['album']!,
@@ -132,10 +163,10 @@ class HomeScreen extends StatelessWidget {
                 height: 150,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: popularSongs.length,
+                  itemCount: soloSongs.length,
                   separatorBuilder: (_, __) => const SizedBox(width: 12),
                   itemBuilder: (context, index) {
-                    final song = popularSongs[index];
+                    final song = soloSongs[index];
                     return SongCard(
                       title: song['title']!,
                       album: song['album']!,
