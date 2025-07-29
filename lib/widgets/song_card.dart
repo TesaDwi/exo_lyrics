@@ -1,54 +1,24 @@
-import 'package:flutter/material.dart';
+import 'package:html_unescape/html_unescape.dart';
 
-class SongCard extends StatelessWidget {
+class Song {
   final String title;
-  final String album;
-  final String image; // Tambahan
+  final String thumbnailUrl;
+  final String videoId;
 
-  const SongCard({
-    super.key,
+  Song({
     required this.title,
-    required this.album,
-    required this.image, // Tambahan
+    required this.thumbnailUrl,
+    required this.videoId,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 160,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          image: AssetImage(image),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.black.withOpacity(0.5),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Icon(Icons.music_note, size: 32, color: Colors.white),
-            const SizedBox(height: 12),
-            Text(
-              title,
-              style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              album,
-              style: const TextStyle(fontSize: 14, color: Colors.white70),
-            ),
-          ],
-        ),
-      ),
+  factory Song.fromJson(Map<String, dynamic> json) {
+    final snippet = json['snippet'];
+    final unescape = HtmlUnescape();
+
+    return Song(
+      title: unescape.convert(snippet['title']),
+      thumbnailUrl: snippet['thumbnails']['medium']['url'],
+      videoId: json['id']['videoId'],
     );
   }
 }
