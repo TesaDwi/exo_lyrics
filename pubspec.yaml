@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   http: ^0.13.6
   html_unescape: ^2.0.0
+  just_audio: ^0.9.32
+  audio_session: ^0.1.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,16 +58,20 @@ dev_dependencies:
 flutter:
 
   assets:
-    - assets/love_shot.jpg
-    - assets/growl.jpg
-    - assets/call_me_baby.jpg
-    - assets/tempo.jpg
-    - assets/cbx.jpg
-    - assets/sc.jpg
-    - assets/baekhyun_candy.jpg
-    - assets/do_rose.jpg
-    - assets/chen_snow.jpg
-
+    - assets/images/love_shot.jpg
+    - assets/images/growl.jpg
+    - assets/images/call_me_baby.jpg
+    - assets/images/tempo.jpg
+    - assets/images/cbx.jpg
+    - assets/images/sc.jpg
+    - assets/images/baekhyun_candy.jpg
+    - assets/images/do_rose.jpg
+    - assets/images/chen_snow.jpg
+    - assets/exo_songs.json
+    - assets/audio/love_shot.mp3
+    - assets/audio/tempo.mp3
+    - assets/lyrics/love_shot.lrc
+    - assets/lyrics/tempo.lrc
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
