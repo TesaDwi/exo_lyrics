@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import '../models/song.dart';
+import '../utils/favorite_songs.dart';
 
 class SongDetailScreen extends StatefulWidget {
   final Song song;
@@ -16,6 +17,7 @@ class SongDetailScreen extends StatefulWidget {
 class _SongDetailScreenState extends State<SongDetailScreen> {
   final AudioPlayer _player = AudioPlayer();
   final ScrollController _scrollController = ScrollController();
+
   List<_LrcLine> _lyrics = [];
   int _currentLine = 0;
   bool _isPlaying = true;
@@ -27,6 +29,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
   @override
   void initState() {
     super.initState();
+    _isFavorited = FavoriteSongs().isFavorite(widget.song);
     _initAudio();
     _loadLrc();
   }
@@ -104,7 +107,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
   }
 
   void _scrollToLine(int index) {
-    final position = index * 40.0; // Estimasi tinggi tiap baris
+    final position = index * 40.0;
     _scrollController.animateTo(
       position,
       duration: const Duration(milliseconds: 500),
@@ -132,6 +135,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
   void _toggleFavorite() {
     setState(() {
       _isFavorited = !_isFavorited;
+      FavoriteSongs().toggle(widget.song);
     });
   }
 
