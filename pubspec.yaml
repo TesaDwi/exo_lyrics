@@ -68,6 +68,7 @@ flutter:
     - assets/images/baekhyun_candy.jpg
     - assets/images/do_rose.jpg
     - assets/images/chen_snow.jpg
+    - assets/images/exo.jpg
     - assets/exo_songs.json
     - assets/audio/love_shot.mp3
     - assets/audio/tempo.mp3
