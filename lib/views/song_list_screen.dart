@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/song.dart';
+import '../utils/favorite_songs.dart';
 import 'song_detail_screen.dart';
 
 class SongListScreen extends StatefulWidget {
@@ -24,9 +25,13 @@ class _SongListScreenState extends State<SongListScreen> {
     final String response =
         await rootBundle.loadString('assets/exo_songs.json');
     final List<dynamic> data = json.decode(response);
+    final loadedSongs = data.map((json) => Song.fromJson(json)).toList();
+
     setState(() {
-      songs = data.map((json) => Song.fromJson(json)).toList();
+      songs = loadedSongs;
     });
+
+    await FavoriteSongs().loadFavorites(songs); // Load favorit tersimpan
   }
 
   @override
@@ -64,15 +69,24 @@ class _SongListScreenState extends State<SongListScreen> {
                     song.album,
                     style: const TextStyle(color: Colors.grey),
                   ),
-                  trailing: const Icon(Icons.arrow_forward_ios,
-                      color: Colors.white, size: 16),
+                  trailing: Icon(
+                    FavoriteSongs().isFavorite(song)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: FavoriteSongs().isFavorite(song)
+                        ? Colors.red
+                        : Colors.white,
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => SongDetailScreen(song: song),
+                        builder: (_) => SongDetailScreen(
+                          playlist: songs,
+                          initialIndex: index,
+                        ),
                       ),
-                    );
+                    ).then((_) => setState(() {})); // Refresh setelah kembali
                   },
                 );
               },

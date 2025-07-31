@@ -4,13 +4,15 @@
         "album": "Love Shot",
         "audioPath": "assets/audio/love_shot.mp3",
         "coverPath": "assets/images/love_shot.jpg",
-        "lyricsPath": "assets/lyrics/love_shot.lrc"
+        "lyricsPath": "assets/lyrics/love_shot.lrc",
+        "channelTitle": "EXO"
     },
     {
         "title": "Tempo",
         "album": "Don't Mess Up My Tempo",
         "audioPath": "assets/audio/tempo.mp3",
         "coverPath": "assets/images/tempo.jpg",
-        "lyricsPath": "assets/lyrics/tempo.lrc"
+        "lyricsPath": "assets/lyrics/tempo.lrc",
+        "channelTitle": "EXO"
     }
 ]

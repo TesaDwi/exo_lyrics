@@ -17,6 +17,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Favorites')),
+      backgroundColor: Colors.black,
       body: favorites.isEmpty
           ? const Center(
               child: Text('Belum ada lagu favorit',
@@ -36,13 +37,16 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => SongDetailScreen(song: song)),
+                        builder: (_) => SongDetailScreen(
+                          playlist: favorites,
+                          initialIndex: index,
+                        ),
+                      ),
                     );
                   },
                 );
               },
             ),
-      backgroundColor: Colors.black,
     );
   }
 }
